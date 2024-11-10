@@ -1,4 +1,4 @@
-import React from 'react'
+import React , {useState} from 'react'
 import {
   Home,
   Sidebar,
@@ -6,11 +6,18 @@ import {
 } from "./index.js"
 
 const App = () => {
-  return (
-    <div>
+
+    const[showModal , setShowModal] = useState(false)
+
+    const handleToggleModal = () => {
+      setShowModal(!showModal)
+    }
+
+    return (
+      <div className='flex min-h-screen relative'>
         <Home/>
-        <Sidebar/>
-        <Footer/>
+        {showModal && (<Sidebar handleToggleModal={handleToggleModal} />)}
+        <Footer handleToggleModal={handleToggleModal} />
     </div>
   )
 }
