@@ -3,19 +3,16 @@ import { FaArrowRight } from "react-icons/fa6";
 
 const Sidebar = (props) => {
 
-    const{handleToggleModal} = props;
+    const{handleToggleModal , data} = props;
 
     return (
         <section className="fixed text-white flex flex-col z-10 sm:relative sm:min-w-[30%]">
             <div className="z-[15] relative flex flex-col gap-4 p-4 overflow-y-scroll h-screen w-[100%] max-w-[800px] ml-auto bg-[#030615]">
-                <h2>The Brutal Marshal landscape</h2>
-                <div className="flex-1">
-                    <p>Description</p>
+                <h2 className="text-3xl">{data?.title}</h2>
+                <div className="flex-1 flex flex-col gap-2">
+                    <p className="text-normal font-light">{data?.date}</p>
                     <p>
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quos
-                        inventore enim laudantium quae facilis, praesentium nesciunt, ipsam
-                        repellendus nam veritatis cum excepturi in dolores eveniet dolor
-                        amet. Asperiores, explicabo labore.
+                    {data?.explanation}
                     </p>
                 </div>
                 <button className="bg-transparent border-none outline-none mr-auto" onClick={handleToggleModal}>
